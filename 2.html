@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>  
+//spread operator  
+    function test(a, b, c, d){
+        console.log(a, b, c, d);
+    }
+    const arr = [1,2,3,4];
+    test(...arr);
+//spread operator - zadanie 
+    function createComputer(cpu, gpu, ram, dysk){
+        return let objComputer = {cpu, gpu, ram, dysk};
+    }
+    let computer = {
+        cpu: "amd",
+        gpu: "nvidia",
+        ram: "32gb",
+        dysk: "1tb"
+    }
+
+
+
+
+</script>
+    
+</body>
+</html>

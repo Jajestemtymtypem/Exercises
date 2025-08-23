@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function averageValue(a, b, c, d){
+            return (a + b + c + d)/4;
+        }
+        console.log(averageValue(2, 4, 8, 10));
+        console.log(averageValue(30, 60, 90, 120));
+        console.log(averageValue(5, 10, 15, 20));
+
+        // funkcja zwracająca obiekt
+        function createTv(brand, screeenSize, color){
+            if( color !="white"&&color !="black"&&color !="silver") return null;
+            const objTv = {
+                Marka: brand,
+                wielkoscEkranu: screeenSize,
+                kolor: color
+            };
+            return objTv;
+        }
+        const tv1 = createTv("sony", 42, "black");
+        const tv2 = createTv("Sharp", 32, "white");
+        const tv3 = createTv("Lenovo", 50, "silver");
+        const tv4 = createTv("Lenovo", 42, "green");
+
+        console.log(tv1)
+        console.log(tv2)
+        console.log(tv3)
+        console.log(tv4)
+
+
+        //funkcja anonimowa
+        let multiplication = function (a, b){
+            return (a*b);
+        }
+        console.log(`to jest funkcja nie przypisana: ${multiplication (5,5)}`)
+        let test = multiplication;
+        console.log(`to jest funkcja przypisana do zmiennej test: ${test(10, 25)}`);
+
+        // callback
+        function greatorThank6(tab, callback){
+            for( let i = 0; i<tab.length; i++){
+                if(tab[i] > 6){
+                    callback(tab[i]);
+                }
+            }
+        }
+        function test2(txt){
+            console.log(txt);
+        }
+        const tab = [1,2,3,4,5,6,7,8,9,10,11,12];
+        greatorThank6(tab, test2);
+
+        // przekazywanie danych przez referencje
+        function wynikMnozenia(arr){
+            for(let i = 0; i<arr.length; i++){
+                arr[i] *= 3;
+            }
+        }
+        let tab3 = [1,2,3,4,5,6,7];
+        wynikMnozenia(tab3);
+        console.log(tab3);
+
+
+        // funkcje zagnieżdzone 
+        function createUser(name, contact){
+            let user = {
+                name: name
+            };
+            if(typeof contact == "string"){
+                user.email = contact;
+            }else if (typeof contact == "number"){ 
+                user.telephone = contact;
+            }
+             return user;
+        }
+       let user1 = createUser("ola","meil@o2.pl");
+       let user2 = createUser("Kasia", 531434734);
+       console.log(user1);
+       console.log(user2);
+
+        //rest lekcja 192
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
