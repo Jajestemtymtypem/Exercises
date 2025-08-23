@@ -14,17 +14,104 @@
     const arr = [1,2,3,4];
     test(...arr);
 //spread operator - zadanie 
+
     function createComputer(cpu, gpu, ram, dysk){
-        return let objComputer = {cpu, gpu, ram, dysk};
+    return {
+        cpu: cpu,
+        gpu: gpu,
+        ram: ram,
+        dysk: dysk
+        }
     }
-    let computer = {
-        cpu: "amd",
-        gpu: "nvidia",
-        ram: "32gb",
-        dysk: "1tb"
+    let computer = createComputer("amd", "nvidia", "32gb", "1tb");
+    console.log(computer);
+
+    function createLaptop(obj, type, weight){
+    return {
+        ...obj,
+        type: type,
+        weight: weight
+    }
+}
+    let laptop = createLaptop(computer, "Laptop", "2,5");
+    console.log(laptop);
+
+//Metody 196.(tragedia)
+    const szkola = {
+        nazwa: "Szkoła imienia Augusta Józefa Poniatowskiego",
+        miasto: "Łady",
+        uczniowie: [],
+        addStudent: function(name, surname){
+        const student = {
+            name: name,
+            surname: surname,
+        };
+        const index = this.uczniowie.length;
+        this.uczniowie[index] = student;
+        },
+        showStudents: function(){
+        if(this.uczniowie.length == 0) {
+            console.log("Brak studentów w szkole");
+            return;
+        }
+        for(let i = 0; i < this.uczniowie.length; i++){
+            const s = this.uczniowie[i];
+            console.log(s.name, s.surname);
+        }
+    },
+    showStudentsByName: function(name){
+        if(this.uczniowie.length == 0){
+            console.log("Nie ma w szkole studentów o imieniu", name);
+            return;
+        }
+        console.log("Uczniowie o imieniu ", name, ":");
+        for(let i = 0; i<this.uczniowie.length; i++){
+            const s = this.uczniowie[i];
+            if(s.name === name) console.log(s.name, s.surname);
+        }
+    },
+    getNumStudents: function(){
+        return this.uczniowie.length;
+    },
+    resetStudents: function(){
+        this.uczniowie = [];
+    }
+    }
+    szkola.addStudent("adam", "adamowicz");
+    szkola.addStudent("zbyszek", "zbyszewski");
+    szkola.addStudent("ola", "olska");
+    szkola.addStudent("ola", "kowalska");
+    console.log(szkola.uczniowie);
+    szkola.showStudents();
+    szkola.showStudentsByName("ola");
+    console.log(szkola.getNumStudents());
+    szkola.resetStudents();
+    console.log(szkola.getNumStudents());
+
+// funkcja konstryująca 
+    function Magazine(title){
+        this.title = title;
+        this.adverts = [];
+
+        this.addAdverts = function (name, page){
+            this.adverts.push({name: name, page: page})
+        }
+        this.printAdverts = function (){
+            for(let i = 0; i< this.adverts.length; i++){
+                let s = this.adverts[i];
+                console.log("Reklama", s.name, s.page);
+            }
+        }
     }
 
+const magazine = new Magazine("Twoje imperium");
+console.log(magazine);
+magazine.addAdverts("Michał wiśniewski", 3);
+magazine.addAdverts("Michał", 5);
+magazine.addAdverts("wiśniewski", 31);
+magazine.printAdverts();
 
+//
 
 
 </script>
