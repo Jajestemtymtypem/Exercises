@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // setery i getery
+        const truck = {
+            _brand: 0,
+            _model: 0,
+            _topSpeed: 0,
+            set brand(newBrand){
+                this._brand = newBrand; 
+            },
+            get brand(){
+                return this._brand;
+            },
+            set model(newModel){
+                this._model = newModel
+            },
+            get model(){
+                return this._model;
+            },
+            set topSpeed(newTopSpeed){
+                if(newTopSpeed > 0){
+                    this._topSpeed = newTopSpeed;
+                }else{
+                    console.log("pojazd jest za wolny");
+                }
+            },
+            get topSpeed(){
+                return this._topSpeed;
+            }
+        }
+        // setTimeout
+
+        setTimeout(function (){
+            console.log("Siema siema siemanko")
+        }, 1000);
+        let i = 0;
+        let intervalId = setInterval(() => {
+            if(i === 5) return;
+            console.log(i);
+            i++;
+        },5)
+
+        // pobieranie danych od użytkownika 
+        // let userImput = prompt("Podaj swoje imię:");
+        // console.log("Twpje imię to ", userImput);
+
+        // Number - metody i właściwości
+        let num = 123.123456
+
+        let num2 = new Number(234.5464);
+
+        console.log(Number.MAX_SAFE_INTEGER);
+        console.log(Number.MIN_SAFE_INTEGER);
+        console.log(Number.MAX_VALUE);
+        console.log(Number.MIN_VALUE);
+        console.log(Number.parseInt("123456") + 10000000);
+        console.log(Number.parseFloat("123456.9876") + 10000000);
+        console.log(Number.isInteger(123));//true
+        console.log(Number.isInteger(123.123));//false
+       
+        console.log(Math.round(12.56));
+        console.log(Math.round(12.50));
+        console.log(Math.round(12.49));
+        console.log(Math.ceil(14.49));
+        console.log(Math.ceil(14.001));
+        console.log("losowa liczba mniejsza od 1",Math.random()); // 0
+        console.log("losowa liczba w zakresie od 0 do mniej niż 5",Math.random() * 5); // <5
+        console.log(Math.trunc(1231231.12312412412312)); 
+        
+        
+
+
+    </script>
+    
+</body>
+</html>
