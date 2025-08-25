@@ -70,11 +70,142 @@
         console.log(Math.round(12.49));
         console.log(Math.ceil(14.49));
         console.log(Math.ceil(14.001));
-        console.log("losowa liczba mniejsza od 1",Math.random()); // 0
-        console.log("losowa liczba w zakresie od 0 do mniej niż 5",Math.random() * 5); // <5
+        console.log("# losowa liczba mniejsza od 1",Math.random()); // 0
+        console.log("# losowa liczba w zakresie od 0 do mniej niż 5",Math.random() * 5); // <5
         console.log(Math.trunc(1231231.12312412412312)); 
         
+        //string - metody i właściwości. 
+        let str = "Hello World!";
+        console.log(str);
+        str = str.toUpperCase();
+        console.log(str);
+        str = str.toLowerCase();
+        console.log(str);
         
+        console.log(str.charAt(0));
+        console.log(str.charCodeAt(0));
+
+        str = "a b c d e f g";
+        console.log(str.split(" "));
+
+        const data = "1 1 2 3 5". split(" ");
+        console.log(data);
+
+        let result = data.join("#");
+        console.log(result);
+
+        str = " A B C S J H H J K E";
+        str = str.replace("H", "Hello");
+        console.log(str);
+
+        str = str.replace(/H/g, "test");
+        console.log(str);
+
+        str = "0123456789";
+        console.log(str.substring(2));
+        console.log(str.substring(2, 6));//od 2 do 6 do pobrania.
+
+        console.log(str.substr(2, 5)); //długość łańcucha do pobrania 5
+        console.log(str.substr(-3)); // 789
+
+        str = "Kasia ma kota, Kasia ma też psa";
+        console.log(str.indexOf("Kasia")); // 0
+        console.log("# wyszukania słowa Kasia od indexu 2", str.indexOf("Kasia", 2)); // 0
+        console.log(str.lastIndexOf("Kasia")); // 0
+
+        let str2 = str.substring(str.indexOf("Kasia"));
+        console.log(str2);
+       
+        //array - metody i właściwości tablicy 
+        let arr = [1, 2, 3, 4, 5];
+        let tab = new Array(1, 2, 3, 4, 5, {a: 12}, [], "dsdasdaa");
+        console.log("# Tablica z wieloma różnymi wartościami", tab);
+        tab = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ]
+        console.log("# tablica składjąca się kilku tablic",tab);
+        console.log("# odwołanei się do konkretnej liczby w tablicy",tab[0][1]);
+        tab = [
+            { name: "Kasia", favColor: "red", favPet: "Dog"},
+            { name: "Zosia", favColor: "white", favPet: "Mouse"},
+            { name: "Gosia", favColor: "black", favPet: "Cat"}
+        ];
+        tab[0] = {name: "Zbigniew", favColor: "blue"};
+        console.log("# tablice są mutowalne więc możeby zmieniać ich wartość w pamięci.", tab);
+        console.log("# odwołanie się do ostatniego obiektu", tab[ tab.length - 1]);
+
+        tab = [1, 2, 3, 4, 5, 6, 7];
+        tab.push(8);
+        tab.push(9);
+        console.log(tab);
+        let element = tab.pop();
+        console.log("# pobranie ostatniego elementu z tablicy - ", element);
+        tab = tab.reverse();
+        console.log("# odwrócenie tablicy - ", tab);
+        tab = tab.concat([10, 11, 12]);
+        console.log("# Połączenie tablic - ", tab);
+
+        tab = ["Ania", "Kasia", "Basia", "Zosia"];
+        for(let i = 0; i < tab.length; i++){
+            const el = tab[i];
+            console.log("# Wypisanie tablicy pętla for - ", el);
+        }
+        for (let el of tab) {
+            console.log("# przejscie po tablicy za pomocą for of - ", el)
+        }
+        tab.forEach(function(item, index, arr){
+            console.log("# kolejny sposób przejścia po tablicy - ", item);
+        });
+        let bos = tab.indexOf("Basia");
+        console.log("# Wyszukanie imienia Basia w tablicy zwraca nam nr indexu - ",bos);
+        bos = tab.indexOf("Grzegorz");
+        console.log("# Wyszukanie imienia Grzegorz w tablicy zwraca nam nr indexu - ",bos, "Zwraca -1 bo nie ma takiego imienia w tablicy");
+        console.log("# sprawdza czy tablica zawiera dane słowo - ",tab.includes("Grzegorz"));
+        console.log("# sprawdza czy tablica zawiera dane słowo - ",tab.includes("Kasia"));
+        tab = tab.sort();
+        console.log("# tablica posortowana alfabetycznie - ", tab);
+
+        //shift i unshift
+        tab = [1, 2, 3, 4, 5, 6, 7, 8, 10, 20];
+        tab.unshift(-3, -2, -1, 0);
+        console.log("# tablica uzupełniona o nowe elementy którę zsostały dodane do początku tablicy - ", tab);
+        tab.shift();
+        console.log("# usuwa pierwszy element w tablicy - ", tab);
+
+        // []. splice (start, deleteCount, item1, item2...) Metoda pozwala na skasowanie i dodanie za jedym razem kilku ele tablicy.
+        let data2 = ["a", "b", "c", "d", "e", "f"];
+        console.log(data2);
+        let res = data2.splice(2, 3);
+        console.log("# usuwa od 2 indexu 3 wartości - ",res);
+        console.log(data2);
+        data2.splice(1, 0, "ola", 2, 3, 4, 5);
+        console.log("# dodaje nowe elementy do tablicy - ",data2);
+        // map
+        let arr2 = ["Ola", "Ania", "Kasia", "Ola", "Asia", "Zuza"];
+        let newArr = arr2.map(function (value, index, arr){
+            return value + "!";
+        });
+
+        console.log(newArr);
+        newArr = arr2.map( (value) => value + "!");
+        console.log(newArr);
+
+        //filter
+        let filtered = arr2.filter(function (v) {
+            return (v.length >= 4)
+        });
+        console.log("# filtruje całą tablice imiona większe lub równe 4 - ",filtered);
+        let reduced = [1,2,3,4,5,6,7,8,9]. reduce(function (acc, currValue, index, arr){
+        return acc + currValue;
+        });
+        console.log("# dodanie w tablicy wszystkich wartości w tablicy - ",reduced);
+        //assign
+        let obj = { a:1, b: 2, str: "text", arr: [1, 2, 3], info: {o: 1}};
+        let data3 = { test: 333 };
+        let result2 = Object.assign(data3, obj);
+        console.log(result2 === data3)
 
 
     </script>
