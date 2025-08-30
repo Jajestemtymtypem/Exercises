@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">Lorem, ipsum dolor.</div>
+    <ul id="menu">
+        <li class="menu-item">link #1</li>
+        <li class="menu-item">link #2</li>
+        <li class="menu-item">link #3</li>
+    </ul>
+    <script>
+        let div = document.getElementById("content");
+        console.log(div);
+        div.style.color = "orange";
+        div.innerHTML = "<b>Hello World</b>";
+        // pobiera pierwszy li z listy i zmienia grubość czcionki.
+        let liItem = document.querySelector("li.menu-item");
+        console.log(liItem);
+        liItem.style.fontWeight = "bold"
+        //pobranie całej listy i zmiana coloru czcionki na czerwony
+        let liInterAll = document.querySelectorAll("ul li.menu-item");
+        for( let i = 0; i<liInterAll.length; i++){
+            const el = liInterAll[i];
+            el.style.color = "red";
+        }
+        // wszystkie elementy z takiem li zmienia kolor czcionki na czarny. 
+        const liList = document.getElementsByTagName("li");
+        for(let i = 0; i < liList.length; i++){
+            const el = liList[i];
+            el.style.color = "black";
+        }
+        //230!!
+
+
+        let p = document.createElement("p");
+        p.innerHTML = "Siema Siema siemanko";
+        let piv = document.getElementById("content");
+        piv.appendChild(p)
+
+        let  c = document.createElement("p");
+        c.innerHTML = "Click me!";
+
+        document.getElementsByTagName("body")[0].appendChild(c);
+        document.addEventListener("clik", function (event){
+            console.log(event);
+            console.log(event.clientX, event.clientY);
+        });
+        c.addEventListener("click", (event) => {
+            console.log("p click");
+        });
+
+
+    </script>
+
+    
+</body>
+</html>
