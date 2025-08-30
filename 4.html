@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = { a:1, b:2, str: "text", arr:[1,2,3], info: {o:1}};
+        let data = {test: 333};
+        let resultat = Object.assign(data, obj);
+
+        console.log(resultat);
+        console.log(resultat === data)//true
+        console.log(obj === data)//false
+        console.log(obj.arr === data.arr)//true
+
+        let o1 = {a: 1, b: 2};
+        let o2 = {c: 3};
+        let o3 = {text: "text"};
+
+        let obj2 = Object.assign({},o1,o2,o3); // skopije płytko ale skopiuje wszystkie elementy do pustej tablicy.
+        console.log(obj2);
+
+        //Enumeracja kluczy i wartości 
+        let obj3 = {
+            num: 123,
+            str: "text",
+            printData: function() {
+                console.log("Hello!");
+            },
+            arr: [1, 2, 3, 4, 5],
+            data: {
+                a: 1,
+                b: 2
+            }
+        };
+        const objKeys = Object.keys(obj3);
+        console.log(objKeys);
+        for(const key of objKeys){
+            console.log("Key", key, "value:", obj3[key]);
+        }
+        const objValues = Object.values(obj);
+        console.log(objValues);
+
+        //Serializacja danych
+        let source = {
+            str: "Hello",
+            a: 24,
+            data: {
+                b: 111,
+                arr: [1,2,3,4,5,6]
+            },
+            date: new Date()
+        }
+        let strData = JSON.stringify(source);
+        console.log(strData);
+
+        let otherObj = JSON.parse(strData);
+        console.log(otherObj);
+        otherObj.date = new Date(otherObj.date);
+        console.log(otherObj.date);
+
+        //definineProperty
+        let obj4 = {
+            a: 10,
+            b: 12
+        };
+        obj4.c = 14;
+
+        Object.defineProperty(obj4, "prop", {
+            value: "test", // wartość
+            writable: true, // czy można modyfikować wartość 
+            configurable: false, // czy będzie można skasować 
+            enumerable: true    // czy można eumerować. 
+        });
+        console.log(obj4);
+        delete obj4.prop;
+        console.log(obj4);
+
+        // call apply bind
+        const employee = {
+            name: "ola",
+            printInfo: function(surname, city) {
+                console.log(this.name, surname, city);
+            }
+        }
+        employee.printInfo("kowalska", "warszawa"); 
+
+        const user = {name: "Adam" };
+        employee.printInfo.call(user, "adamski", "kraków");
+
+        employee.printInfo.apply(user, ["Adamski", "Gdańsk"]);
+
+        let userInfo = employee.printInfo.bind(user, "Kowalski", "Szczecin");
+        userInfo();
+        userInfo();
+        userInfo();
+        //Closures - domknięcia. 
+        //Domknięcia to jest zasięg stworzony przez funckje wraz z otoaczającym ją środowiskiem czyli zmiennymi oraz innymi funkcjami. którę razem oddzialone są od reszty kodu programu .
+
+        let b = 30; // zmienna globlana b
+        let c = 10;
+        function foo() {
+            let b = 5; // osobna zmienna lokalna b 
+            c = -1; // zmiena globalnej zmiennej
+            console.log("b:", b); // odwołanie się do b lokalnego. 
+        }
+        foo(); // b: 5
+        //funkcja foo ma swoje własne środowisko z zmienną b, która oddzielona od globalnej przestrzeni nazw, nazwa zmiennej się pokrywa więc wybrana zostanie lojalna zmienna o wartości 5 dla console.log()
+        //Funckja foo jest domknięciem bo wtorzy idzielne środowisko dla zawartych w niej zmiennych ale równierz wewnętrznych funkcji jeżeli takie występują. 
+
+        let d = 99;
+        function bar(){
+            let e = 12;
+
+            function test(){
+                let num = 45;
+                console.log(`d:${d} e:${e} num:${num}`);
+            }
+            return test;
+        }
+        let show = bar();
+        console.log(show);
+        show();
+        // curring
+        function test(x) {
+            return function(y) {
+                console.log(x, y);
+            }
+        }
+        let showu = test(12);
+        show(5); // 12 5
+        show(6); // 12 6
+        show(7); // 12 7
+
+        // dzięki domknięciom możemy wtorzyć kostrukcję gdzie nasze dane staną się prwytane więc obejdziemy ograniczcenai JavaScript.
+
+        function test() {
+            let privData = "hello!";
+            function showPrivData() {
+                console.log(privData);
+            }
+            function setData(value) {
+                privData = value;
+            }
+            return {
+                show: showPrivData,
+                setData: setData
+            }
+        }
+        const obj5 = test();
+        console.log(obj5);
+
+        obj5.show();
+        obj5.setData(67);
+        obj5.show(); 
+
+
+
+
+    </script>
+    
+</body>
+</html>
