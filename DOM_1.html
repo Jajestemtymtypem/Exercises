@@ -12,6 +12,7 @@
         <li class="menu-item">link #2</li>
         <li class="menu-item">link #3</li>
     </ul>
+    <p>Lorem ipsum dolor sit amet.</p>
     <script>
         let div = document.getElementById("content");
         console.log(div);
@@ -36,22 +37,61 @@
         //230!!
 
 
-        let p = document.createElement("p");
-        p.innerHTML = "Siema Siema siemanko";
-        let piv = document.getElementById("content");
-        piv.appendChild(p)
+        // let p = document.createElement("p");
+        // p.innerHTML = "Siema Siema siemanko";
+        // let piv = document.getElementById("content");
+        // piv.appendChild(p)
 
-        let  c = document.createElement("p");
+        let  c = document.createElement("c");
         c.innerHTML = "Click me!";
 
         document.getElementsByTagName("body")[0].appendChild(c);
-        document.addEventListener("clik", function (event){
+        document.addEventListener("click", function (event){
             console.log(event);
             console.log(event.clientX, event.clientY);
         });
         c.addEventListener("click", (event) => {
-            console.log("p click");
+            console.log("c click");
         });
+//Nasłuchiwanie kliknięć myszny na danym elemencie wjazd wyjazd ruch. 
+        const p = document.getElementsByTagName("p")[0];
+        p.addEventListener("mouseenter", function(event){
+            console.log("mouseenter");
+        });
+        p.addEventListener("mouseleave", function(event){
+            console.log("mouseenter");
+        });
+        p.addEventListener("mousemove", function(event){
+            console.log("mouseenter");
+        });
+//JSON
+        let data = `
+            {
+                "user":{
+                        "name": "Ola",
+                        "surname": "Kowalska",
+                        "age": 33,
+                        "languages": ["JavaScript", "Java", "python"],
+                        "adress": {
+                            "city": "krk",
+                            "street": "wilcza",
+                            "country": "Poland"
+                        }
+                    }
+                }
+            `;
+        
+        let obj = JSON.parse(data);
+        console.log(obj);
+        console.log(obj.user.name);
+        
+        let jsonStr = JSON.stringify(obj);
+        console.log(jsonStr);
+        let jsonStr2 = JSON.stringify(obj, null, 4);
+        console.log(jsonStr2);
+
+
+
 
 
     </script>
