@@ -9,34 +9,16 @@
 <body>
     <div class = "throw-box">
         <div class="dice-box">
-            <div class="dice"><img id="dice" src="icons/0.png">
-            </div>
+            <div class="dice"><img id="dice0" src="icons/0.png"></div>
+            <div class="dice"><img id="dice1" src="icons/0.png"></div>
+            <div class="dice"><img id="dice2" src="icons/0.png"></div>
+            <div class="dice"><img id="dice3" src="icons/0.png"></div>
+            <div class="dice"><img id="dice4" src="icons/0.png"></div>
         </div>
             <div class="button">
                 <button id="button-throw">Rzuć kostką</button>
         </div>
     </div>
-<script>
-    function randomDice(){
-    return Math.floor(Math.random() *6) + 1;
-}
-function throwDice(){
-    let pips = 0;
-    pips = randomDice();
-    console.log("Wyrzucona ilość oczek na kości", pips);
-    let i = 0;
-    let timer = setInterval(() => {
-        let r = Math.floor(Math.random() *6) + 1;
-        document.getElementById("dice").src = "icons/" + r + ".png"
-        i++;
-        if( i > 15){
-            document.getElementById("dice").src = "icons/" + pips + ".png"
-            pips = 0;
-            clearInterval(timer);
-        }
-    },60)
-}
-document.getElementById("button-throw").addEventListener("click", throwDice);
-</script>
+<script src="script.js"></script>
 </body>
 </html>
