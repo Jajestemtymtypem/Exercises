@@ -14,16 +14,10 @@
     </header>
     <nav id="home">
         <ul>
-            <li><a href="home">Home</a></li>
-        </ul>
-        <ul>
-            <li><a href="article">Artykuł</a></li>
-        </ul>
-        <ul>
-            <li>Home</li>
-        </ul>
-        <ul>
-            <li>Home</li>
+            <a href="#home">Home</a>
+            <a href="#article">Artykuł</a>
+            <a href="#form">Formularz</a>
+            <a href="#footer">Stopka</a>
         </ul>
     </nav>
     <main>
@@ -36,43 +30,43 @@
         </aside>
         <article id="article">
         <h2>Lorem ipsum dolor sit amet.</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea cupiditate dignissimos sequi, nobis aliquid voluptas deleniti sed dolorem omnis hic magni suscipit possimus a. Doloremque totam nam cum perspiciatis ratione perferendis quod reprehenderit reiciendis natus nobis voluptatem, ex iste blanditiis. Assumenda obcaecati officiis ad vero quae consectetur quaerat sapiente eos labore mollitia, quidem delectus ipsa rerum dolore. Iusto minima necessitatibus ratione eius officiis itaque eveniet consequatur aperiam harum dolore et velit libero iste, expedita ex cumque nisi architecto voluptas. Dolores exercitationem, dolorum illum asperiores cumque fugit facilis, corrupti blanditiis vero debitis ullam numquam rerum natus distinctio architecto earum, incidunt ipsam ratione qui voluptates et molestiae. Quo maxime fuga soluta fugiat, error labore totam consequuntur cumque nostrum, sint aliquid. Ullam dolorem nihil illum molestiae soluta a, blanditiis ea perferendis quas sit, molestias voluptatem! Ad quas deleniti blanditiis voluptas tenetur ullam animi perferendis omnis exercitationem quae deserunt, a, error maxime? Dignissimos, hic.</p></br>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea cupiditate dignissimos sequi, nobis aliquid voluptas deleniti sed dolorem omnis hic magni suscipit possimus a. Doloremque totam nam cum perspiciatis ratione perferendis quod reprehenderit reiciendis natus nobis voluptatem, ex iste blanditiis. Assumenda obcaecati officiis ad vero quae consectetur quaerat sapiente eos labore mollitia, quidem delectus ipsa rerum dolore. Iusto minima necessitatibus ratione eius officiis itaque eveniet consequatur aperiam harum dolore et velit libero iste, expedita ex cumque nisi architecto voluptas. Dolores exercitationem, dolorum illum asperiores cumque fugit facilis, corrupti blanditiis vero debitis ullam numquam rerum natus distinctio architecto earum, incidunt ipsam ratione qui voluptates et molestiae. Quo maxime fuga soluta fugiat, error labore totam consequuntur cumque nostrum, sint aliquid. Ullam dolorem nihil illum molestiae soluta a, blanditiis ea perferendis quas sit, molestias voluptatem! Ad quas deleniti blanditiis voluptas tenetur ullam animi perferendis omnis exercitationem quae deserunt, a, error maxime? Dignissimos, hic.</p><br>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, doloribus! Iste, saepe officia! Nemo natus, hic eligendi iusto labore consequuntur maiores quod itaque fugit eveniet?</p>
         </article>
         
     </main>
    
-    <div class="form">
+    <div id="form">
        <form action="login.php" method="post">
         <p>
             <label for="name">Twoje imię: </label>
-            <input name="name" id="form-name" type="text" required>
+            <input name="name" id="name" type="text" required>
         </p>
         <p>
             <label for="e-mail">Adres e-mail: </label>
-            <input name="e-mail" id="form-meil" type="email" required>
+            <input name="e-mail" id="e-meil" type="email" required>
         </p>
         <p>
             <label for="haslo">Hasło</label>
-            <input name="password" id="form-haslo" type="password" required>
+            <input name="password" id="haslo" type="password" required>
         </p>
         <label for="regulamin">Zgadzam się:</label>
         <input type="checkbox">
         <p><input type="submit" value="wyślij"></p>
        </form> 
     </div>
-    <footer>
+    <footer id="footer">
         <ul>
-            <li><p>adres:</p> ul. jakaś 14 09-009 Wawa</li>
+            <li><p>adres:</p> <a href="https://maps.app.goo.gl/9ZfXR9iyXs4RYVd76">ul. jakaś 14 09-009 Waw</a></li>
         </ul>
         <ul>
-            <li><p>tel:</p> 123 123 123</li>
+            <li><p>tel:</p><a href="tel:123123123"> 123 123 123</a></li>
         </ul>
         <ul>
-            <li><p>meil:</p> saduasbd@o2.pl</li>
+            <li><p>meil:</p><a href="meil:saduasbd@o2.pl">saduasbd@o2.pl</a></li>
         </ul>
         <ul>
-            <li><p>strona www</p>www.jsajdas.pl</li>
+            <li><p>strona www</p><a href="www.wp.pl">www.jsajdas.pl</a></li>
         </ul>
     </footer>
     <!-- <script src="skrypt.js"></script> -->

@@ -1,6 +1,20 @@
 *{
-    margin: 0;
+    box-sizing: border-box;
+}
+html, body{
+    margin:0;
     padding:0;
+}
+:root{
+    --space:1rem;
+    --space-lg:2rem;
+    --border:2px;
+    --brand:hotpink;
+    --container: 1100px;
+}
+.container {
+  width: min(100% - 2rem, var(--container));
+  margin-inline: auto;
 }
 .header{
     width: 95%;
@@ -26,6 +40,9 @@ nav{
     margin: 0.5rem -5px;
     padding: 0.1rem;
 }
+nav a{
+    margin: 0 10px;
+}
 main{
     display:flex;
     justify-content:center;
@@ -36,7 +53,7 @@ aside{
     text-align: center;
 }
 article{
-    width: 90%;
+    width: 80%;
     margin:auto;
 }
 aside p{
@@ -65,12 +82,11 @@ footer li{
 }
 footer p{
     font-weight: bold;
-}
-.form{
+}#form{
     width: 90%;
     margin:auto;
     margin-top: 2rem;
 }
-.form input{
+#form input{
     margin: 0.2rem;
 }
