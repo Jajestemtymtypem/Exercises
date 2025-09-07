@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding:0;
+}
+.header{
+    width: 95%;
+    margin:auto;
+    margin-top:2rem;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header img{
+    max-width: 15%;
+    border:2px solid pink;
+    border-radius:15%;
+}
+.header h1{
+    margin:auto;
+    border-bottom: 0.4rem double pink;
+}
+nav{
+    border:2px solid pink;
+    display:flex;
+    justify-content: space-around;
+    margin: 0.5rem -5px;
+    padding: 0.1rem;
+}
+main{
+    display:flex;
+    justify-content:center;
+    margin-top:2rem;
+}
+aside{
+    width: 20%;
+    text-align: center;
+}
+article{
+    width: 90%;
+    margin:auto;
+}
+aside p{
+    margin-top:1rem;
+}
+footer{
+    width: 90%;
+    margin:auto;
+    margin-top:2rem;
+    display:flex;
+    justify-content:space-around;
+    border: 4px solid pink;
+    
+}
+footer ul{
+    width:20%;
+    list-style: none;
+    padding:0.2rem;
+    display:flex;
+    justify-content: center;
+    
+    
+}
+footer li{
+    text-align: center;
+}
+footer p{
+    font-weight: bold;
+}
+.form{
+    width: 90%;
+    margin:auto;
+    margin-top: 2rem;
+}
+.form input{
+    margin: 0.2rem;
+}
