@@ -41,5 +41,4 @@ function hello(){
 }
 document.getElementById("button-throw").addEventListener("click", throwDice);
 
-document.getElementsByClassName("dice-box")
-
+document.getElementsByClassName(`dice${}`)
