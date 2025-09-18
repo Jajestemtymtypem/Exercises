@@ -41,6 +41,4 @@ function hello(){
 }
 document.getElementById("button-throw").addEventListener("click", throwDice);
 
-document.getElementById('dice${i}').addEventListener("click", hello);
-
-
+document.getElementsByClassName(`dice${}`)
