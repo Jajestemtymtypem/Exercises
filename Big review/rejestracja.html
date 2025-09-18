@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Rejestracja.pl</title>
+    </head>
+    <body>
+        <div class="page">
+            <div class="form-box">
+                <h3>Formularz rejestrujący:</h3>
+                <form>
+                    <label for="name">Imię: </label>
+                    <input type="text" id="name" name="user-name" placeholder="Imię" required><br>
+                    <label for="surname">Nazwisko: </label>
+                    <input type="text" id="surname" name="user-surname" placeholder="Nazwisko" required><br>
+                    <label for="email">Adres e-mail: </label>
+                    <input type="email" id="email" name="user-email" placeholder="e-mail" required><br>
+                    <label for="password">Hasło: </label>
+                    <input type="password" id="password" name="user-password" placeholder="Hasło" required><br>
+                    <label for="aboutme">Kilka słów o mnie: </label>
+                    <textarea id="aboutme" name="user-aboutme" rows="5" cols="30"></textarea><br>
+                    <label for="sex">Wybierz swoją płeć:</label><br>
+                    <select id="sex" name="user-sex">
+                        <option value="men">Mężczyzna</option>
+                        <option value="women">Kobieta</option>
+                        <option value="other">Inne</option>
+                    </select><br>
+                    <label>Zgadzam się na przetwarzanie moich danych:<br> <input type="checkbox" name="date" value="date">Wyrażam zgodę</label><br>
+                    <input type="submit" value="Wyślij">
+                </form>
+            </div>
+            <div class="tab-box">
+                <table border="6">
+                    <tr>
+                        <th> Imię </th>
+                        <th> Nazwisko </th>
+                        <th> Email </th>
+                        <th> Płeć </th>
+                    </tr>
+                    <tr>
+                        <td> Anna </td>
+                        <td> Nowak </td>
+                        <td> anna@wp.pl </td>
+                        <td> Kobieta </td>
+                    </tr>
+                    <tr>
+                        <td> Marek </td>
+                        <td> Kowalski </td>
+                        <td> marek@gmail.com </td>
+                        <td> Mężczyzna </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

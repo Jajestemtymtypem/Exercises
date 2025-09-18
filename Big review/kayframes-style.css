@@ -1,0 +1,87 @@
+.page{
+    background-color: aqua;
+    width: 100%;
+    height: 400px;
+}
+.magic-box{
+    margin:auto;
+    opacity: 100;
+    width: 250px;
+    height: 250px;
+    background-color: red;
+    animation-name: magic;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.text{
+    margin:auto;
+    margin-top: 10px;
+    padding: 20px;
+    width: 500px;
+    background-color:white;
+    color: black;
+    animation-name: jump;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+}
+button{
+    text-align: center;
+    margin-top: 30px;
+    width:200px;
+    height: 100px;
+    margin-left:46%;
+    animation-name: big;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+.baner{
+    margin:auto;
+    position: relative;
+    justify-content: center;
+    align-items:center;
+}
+.baner h1{
+    color:black;
+    position: absolute;
+    top:50px ;
+    z-index: 1;
+    animation-name: move;
+    animation-duration: 2s;
+    animation-iteration-count:infinite;
+}
+.baner img{
+    position: absolute;
+    z-index: 0;
+    width: 400px;
+    height: 200px;
+}
+@keyframes magic{
+    0% {opacity: 0;}
+    100% {opacity: 100;}
+}
+@keyframes jump{
+    0% {margin-top: 4px;
+    }
+    50% {margin-top: 0px;}
+    100% {margin-top: 4px;}
+}
+@keyframes big{
+    0% {font-size: 25px;}
+    50% {font-size: 45px;}
+    100% {font-size: 25px;}
+}
+@keyframes move{
+    0% {left: 0px;
+        color:black;
+        transform: scale(1.1);
+    }
+    50% {left: 150px;
+        color:gold;
+        transform: scale(1);
+    }
+    100% {left: 0px;
+        color:black;
+        transform:scale(1.1);
+    }
+}

@@ -1,0 +1,79 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+body{
+    font-family: sans-serif;
+    background-color: rgb(255, 255, 255);
+    color:black;
+}
+header{
+    margin:1rem auto;
+    padding: 0.5rem;
+    width: 95%;
+}
+nav{
+    border: 2px solid black;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: antiquewhite;
+}
+nav a{
+    text-decoration: none;
+    font-size:1.3rem;
+    font-weight: bold;
+    background-color: antiquewhite;
+}
+.page{
+    width:95%;
+    margin:1rem;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+#aboutME{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.me-header{
+    display: flex;
+    justify-content:flex-start;
+    align-items: flex-end;
+    overflow: hidden;
+}
+.me-header h2{
+    padding-left:3rem;
+}
+.me-header img{
+    width: 200px;
+    margin-bottom: -40px;
+    
+}
+.me-header img:hover{
+   transform: scale(1.3);
+}
+.me-text{
+    margin: 2rem;
+}
+p{
+    margin:0.3rem;
+}
+#contacts{
+    margin:1rem;
+    margin-left: 3.4rem;
+}
+footer{
+    text-align: center;
+    margin-top:6rem;
+}
+h1{
+    animation: move 3s ease-in-out infinite;
+}
+
+@keyframes move{
+    0%, 100% {transform: translateX(1%)}
+    50% {transform: translateX(55%)}
+}
