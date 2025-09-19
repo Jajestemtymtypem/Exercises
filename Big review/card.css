@@ -1,0 +1,50 @@
+nav{
+    margin:100px auto;
+}
+.file-card{
+    width:90%;   
+    position:absolute;
+}
+.card{
+    position:relative;
+    width: 80%;
+    height: 200px;
+    background-color:bisque;
+    border-radius:3%;
+}
+.title-card{
+    position:absolute;
+    top:-20px;
+    left:20px;
+    background-color:bisque;
+    padding:2px;
+    padding-right: 10px;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+.title-card2{
+    position:absolute;
+    top:-20px;
+    left:75px;
+    background-color:bisque;
+    padding:2px;
+    padding-right: 10px;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+.title-card3{
+    position:absolute;
+    top:-20px;
+    left:134px;
+    background-color:bisque;
+    padding:2px;
+    padding-right: 10px;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+.card:hover{
+    transform:translateY(-10px) scale(1.01)
+}
+.file{
+
+}
