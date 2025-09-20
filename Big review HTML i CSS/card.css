@@ -11,6 +11,7 @@ nav{
     height: 200px;
     background-color:bisque;
     border-radius:3%;
+     transition: transform 0.5s ease;
 }
 .title-card{
     position:absolute;
@@ -21,6 +22,7 @@ nav{
     padding-right: 10px;
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
+   
 }
 .title-card2{
     position:absolute;
@@ -43,8 +45,8 @@ nav{
     border-top-right-radius: 10%;
 }
 .card:hover{
-    transform:translateY(-10px) scale(1.01)
+    transform:translateY(-10px) scale(1.01);
+    z-index: 1;
+    
 }
-.file{
 
-}
