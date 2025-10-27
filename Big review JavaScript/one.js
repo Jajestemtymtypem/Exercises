@@ -1,94 +1,43 @@
-//a
-const sklepy = [
-  {
-    nazwa: "Sklep A",
-    produkty: [
-      {nazwa: "Mleko", cena: 3},
-      {nazwa: "Chleb", cena: 2.5}
-    ]
-  },
-  {
-    nazwa: "Sklep B",
-    produkty: [
-      {nazwa: "Masło", cena: 7}
-    ]
-  },
-  {
-    nazwa: "Sklep C",
-    produkty: [
-      {nazwa: "Ser", cena: 5},
-      {nazwa: "Jajka", cena: 6},
-      {nazwa: "Sok", cena: 4.5}
-    ]
-  }
+const klienci = [
+  { imie: "Ania", zakupy: [120, 60, 300] },
+  { imie: "Kuba", zakupy: [20, 10, 15] },
+  { imie: "Ola", zakupy: [400, 250] },
+  { imie: "Tomek", zakupy: [50, 60, 80, 20] }
 ];
-let lacznaWartosc = 0;
-for(const sklep of sklepy){
-  for(const produkt of sklep.produkty){
-    lacznaWartosc += produkt.cena;
-  }
+let wynik = [];
+function analizujZakupy(tab){
+  wynik = tab.map(klient =>{
+    const suma = klient.zakupy.reduce((a,b)=>a+b,0);
+    const srednia = (suma / klient.zakupy.length).toFixed(2);
+    let status= suma > 400 ? "VIP":"STANDARD";
+    if(suma<100) status = "LOW"
+    return {imie:klient.imie, suma, srednia, status};
+  })
+  wynik.sort((a,b)=>b.suma - a.suma)
+  return wynik;
 }
-console.log(lacznaWartosc.toFixed(1));
-//b
-const artykuly = [
-  {tytul: "O psach", tagi: ["zwierzeta", "dom"]},
-  {tytul: "O programowaniu", tagi: ["kod", "javascript"]},
-  {tytul: "O kotach", tagi: ["zwierzeta", "relaks"]},
-  {tytul: "O CSS", tagi: ["kod", "frontend"]}
-];
-for(artykul of artykuly){
-  if(artykul.tagi.includes("kod")){
-    console.log(artykul.tytul)
-  }
-}
-//8
-const rachunki = [
-  {miesiac: "Styczeń", oplaty: {prad: 120, woda: 60}},
-  {miesiac: "Luty", oplaty: {prad: 140, woda: 50}},
-];
-let prad = 0;
-let woda = 0;
-for(const rachunek of rachunki){
-  prad += rachunek.oplaty.prad
-  woda += rachunek.oplaty.woda
-}
-console.log("Łącznie prąd: ",prad)
-console.log("Łącznie woda: ",woda)
 
-const suma = rachunki.reduce((acc, rachunek) => {
-  acc.prad += rachunek.oplaty.prad;
-  acc.woda += rachunek.oplaty.woda;
-  return acc;
-}, { prad: 0, woda: 0 }); // początek: wszystko równe 0
-
-console.log(suma)
-
-const dzien = [
-  {godzina: "08:00", zuzycie: {gaz: 1.2, prad: 0.5}},
-  {godzina: "12:00", zuzycie: {gaz: 0.8, prad: 0.9}},
-  {godzina: "18:00", zuzycie: {gaz: 1.0, prad: 0.6}},
-];
-const caleZuzycie = dzien.reduce((acc, godzina)=>{
-  acc.gaz += godzina.zuzycie.gaz;
-  acc.prad += godzina.zuzycie.prad;
-  return acc;
-},{gaz: 0, prad: 0})
-console.log(caleZuzycie)
-//9
-const magazyn = {
-  sekcjaA: [
-    {nazwa: "śrubka", ilosc: 100},
-    {nazwa: "młotek", ilosc: 20}
-  ],
-  sekcjaB: [
-    {nazwa: "wiertło", ilosc: 50}
-  ]
-};
-let calkowitaLiczbaPrzedmiotow = 0;
-let sekcja = Object.entries(magazyn)
-for(const dzial of sekcja){
-  console.log(dzial)
-  for(const produkt of dzial){
-    console.log(produkt)
-  }
+console.log(analizujZakupy(klienci))
+function raport(tab){
+  let raport ={VIP:0, STANDARD:0, LOW:0, "Łączna suma":0, "Średnia suma per klient":0};
+  for(const klient of tab){
+  if(klient.status =="VIP"){
+    raport.VIP ++
+  }else if (klient.status=="STANDARD"){
+    raport.STANDARD ++;
+  }else {raport.LOW++}
+  raport["Łączna suma"] += klient.suma
+  raport["Średnia suma per klient"] = raport["Łączna suma"] / klienci.length;
+}return raport;
+ 
 }
+console.log(raport(wynik))
+
+function znajdzNajwiekszyZakup(tab){
+for(const klient of tab){
+  return (klient.zakupy.reduce((a,b)=>{
+    b>a
+  },0))
+}
+}
+console.log(znajdzNajwiekszyZakup(klienci))
