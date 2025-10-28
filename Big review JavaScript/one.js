@@ -1,44 +1,42 @@
-const klienci = [
-  { imie: "Ania", zakupy: [120, 60, 300] },
-  { imie: "Kuba", zakupy: [20, 10, 15] },
-  { imie: "Ola", zakupy: [400, 250] },
-  { imie: "Tomek", zakupy: [50, 60, 80, 20] }
+//1
+  const zamowienia = [
+  { klient: "Ania", produkty: [{ nazwa: "Laptop", cena: 3500, szt: 1 }, { nazwa: "Mysz", cena: 120, szt: 2 }] },
+  { klient: "Kuba", produkty: [{ nazwa: "Kawa", cena: 30, szt: 5 }, { nazwa: "Czekolada", cena: 8, szt: 10 }] },
+  { klient: "Ola", produkty: [{ nazwa: "Monitor", cena: 900, szt: 1 }, { nazwa: "Klawiatura", cena: 200, szt: 1 }] },
+  { klient: "Tomek", produkty: [{ nazwa: "Laptop", cena: 3500, szt: 2 }, { nazwa: "Mysz", cena: 120, szt: 1 }] }
 ];
-let wynik = [];
-function analizujZakupy(tab){
-  wynik = tab.map(klient =>{
-    const suma = klient.zakupy.reduce((a,b)=>a+b,0);
-    const srednia = (suma / klient.zakupy.length).toFixed(2);
-    let status= suma > 400 ? "VIP":"STANDARD";
-    if(suma<100) status = "LOW"
-    return {imie:klient.imie, suma, srednia, status};
-  })
-  wynik.sort((a,b)=>b.suma - a.suma)
-  return wynik;
+let kopiaRaportu=[];
+function analizujKlientow(tab){
+  const raport = [];
+  let suma = 0;
+  for(const zamowienie of zamowienia){
+    const sumaZakupow = zamowienie.produkty.map(nazwa =>(nazwa.cena * nazwa.szt)).reduce((a,b)=>a+b,0);
+    const iloscSztuk = zamowienie.produkty.map(nazwa =>(nazwa.szt)).reduce((a,b)=>a+b,0);
+    const sredniaCena = (sumaZakupow/iloscSztuk).toFixed(2);
+    let status ="";
+    if(sumaZakupow > 4000) status = "VIP";
+    else if(sumaZakupow < 1000) status = "LOW"
+    else status = "STANDARD";
+    const klient = {imie:zamowienie.klient, suma:sumaZakupow, iloscSztuk, sredniaCena,status}
+    raport.push(klient)
+  
+  }
+  kopiaRaportu = raport;
+  return raport
 }
+console.log(analizujKlientow(zamowienia))
 
-console.log(analizujZakupy(klienci))
-function raport(tab){
-  let raport ={VIP:0, STANDARD:0, LOW:0, "Łączna suma":0, "Średnia suma per klient":0};
+function raportSprzedazy(tab){
+  const raport = {"VIP": 0, "STANDARD":0, "LOW":0, "Łączna sprzedaż":0, "Średnia na klienta":0}
   for(const klient of tab){
-  if(klient.status =="VIP"){
-    raport.VIP ++
-  }else if (klient.status=="STANDARD"){
-    raport.STANDARD ++;
-  }else {raport.LOW++}
-  raport["Łączna suma"] += klient.suma
-  raport["Średnia suma per klient"] = raport["Łączna suma"] / klienci.length;
-}return raport;
- 
+    if(klient.status == "VIP") raport["VIP"]++;
+    else if(klient.status == "STANDARD") raport["STANDARD"]++;
+    else raport["LOW"]++;
+    raport["Łączna sprzedaż"] += klient["suma"]
+    
+    raport["Średnia na klienta"] = ((raport["Łączna sprzedaż"]/tab.length)).toFixed(2)
+  }
+  
+ return raport
 }
-console.log(raport(wynik))
-
-function znajdzNajwiekszyZakup(tab){
-for(const klient of tab){
-  return (klient.zakupy.reduce((a,b)=>{
-    b>a
-  },0))
-}
-}
-console.log(znajdzNajwiekszyZakup(klienci))
-console.log(znajdzNajwiekszyZakup(klienci))
+console.log(raportSprzedazy(kopiaRaportu))
