@@ -41,3 +41,4 @@ for(const klient of tab){
 }
 }
 console.log(znajdzNajwiekszyZakup(klienci))
+console.log(znajdzNajwiekszyZakup(klienci))
